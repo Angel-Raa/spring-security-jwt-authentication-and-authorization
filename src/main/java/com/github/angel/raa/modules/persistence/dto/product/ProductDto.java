@@ -1,6 +1,6 @@
 package com.github.angel.raa.modules.persistence.dto.product;
 
-import com.github.angel.raa.modules.persistence.enums.ProductStatus;
+import com.github.angel.raa.modules.utils.enums.ProductStatus;
 import com.github.angel.raa.modules.utils.constants.Message;
 import jakarta.validation.constraints.*;
 

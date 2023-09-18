@@ -5,7 +5,7 @@ import com.github.angel.raa.modules.exception.ProductNotFoundException;
 import com.github.angel.raa.modules.persistence.dto.product.ProductAllListDto;
 import com.github.angel.raa.modules.persistence.dto.product.ProductDto;
 import com.github.angel.raa.modules.persistence.dto.product.ProductListDto;
-import com.github.angel.raa.modules.persistence.enums.ProductStatus;
+import com.github.angel.raa.modules.utils.enums.ProductStatus;
 import com.github.angel.raa.modules.persistence.mapper.ProductMapper;
 import com.github.angel.raa.modules.persistence.models.Category;
 import com.github.angel.raa.modules.persistence.models.Product;

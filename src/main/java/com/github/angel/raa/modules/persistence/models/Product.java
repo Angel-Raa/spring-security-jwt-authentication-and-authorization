@@ -1,7 +1,6 @@
 package com.github.angel.raa.modules.persistence.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.github.angel.raa.modules.persistence.enums.ProductStatus;
+import com.github.angel.raa.modules.utils.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

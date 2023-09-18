@@ -34,7 +34,9 @@ public class Message {
     public static final String PASSWORD_NOT_MATCH = "Passwords do not match";
     public static final String USERNAME_ALREADY_EXISTS = "Username already exists";
     public static final String EMAIL_ALREADY_EXISTS = "Email already exists";
-    public static final String USER_NOT_FOUND = "User not found";
+    public static final String USER_NOT_FOUND = "Sorry, we couldn't find the user you're looking for. Please double-check the entered information and try again.";
+
+
     public static final String INVALID_CREDENTIALS = "Invalid credentials";
     public static final String INVALID_TOKEN = "Invalid token";
     public static final String PASSWORD_MIN_LENGTH = " The password must have at least 8 characters.";
