@@ -1,0 +1,16 @@
+services:
+  database:
+    image: 'postgres:15-alpine'
+    restart: 'always'
+    container_name: 'database'
+    volumes:
+      - 'data:/var/lib/'
+    environment:
+      - 'POSTGRES_DB=db_api'
+      - 'POSTGRES_PASSWORD=12345'
+      - 'POSTGRES_USER=db_api'
+    ports:
+      - '50400:5432'
+
+volumes:
+  'data':
