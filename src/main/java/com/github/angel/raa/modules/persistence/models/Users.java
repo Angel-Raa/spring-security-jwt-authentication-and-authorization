@@ -23,8 +23,9 @@ import java.util.stream.Collectors;
 public class Users implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "username", length = 50)
+    @Column(name = "username", length = 50, unique = true)
     private String username;
+    private String name;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
