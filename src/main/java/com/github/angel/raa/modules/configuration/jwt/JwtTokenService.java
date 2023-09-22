@@ -1,6 +1,7 @@
 package com.github.angel.raa.modules.configuration.jwt;
 
 import com.github.angel.raa.modules.persistence.models.Users;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +40,9 @@ public class JwtTokenService {
     }
 
     private Key generateKey() {
-        byte[] keyBytes = SECRET_KEY.getBytes();
-        return Keys.hmacShaKeyFor(keyBytes);
+        byte[]  passwordDecoded = Decoders.BASE64.decode(SECRET_KEY);
+       // System.out.println("Test " + passwordDecoded);
+        return Keys.hmacShaKeyFor(passwordDecoded);
     }
 
     public Map<String, Object> generateExtraClaims(Users users) {
@@ -49,5 +52,17 @@ public class JwtTokenService {
         extraClaims.put("Authorities", users.getAuthorities());
         return extraClaims;
 
+    }
+
+
+    public String extractUsername(String token) {
+        return extractClaims(token).getSubject();
+    }
+
+    private Claims extractClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(generateKey())
+                .build().parseClaimsJws(token)
+                .getBody();
     }
 }

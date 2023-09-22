@@ -24,9 +24,10 @@ public class HttpSecurityConfiguration {
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .authorizeHttpRequests((authHttp) -> {
-                    authHttp.requestMatchers("error").permitAll();
+                    authHttp.requestMatchers("/error").permitAll();
                     authHttp.requestMatchers(HttpMethod.POST, "/customer/register").permitAll();
                     authHttp.requestMatchers(HttpMethod.POST, "/auth/**").permitAll();
+                    authHttp.requestMatchers(HttpMethod.GET, "/auth/validate-token").permitAll();
                     authHttp.anyRequest().authenticated();
                 })
                 .build();

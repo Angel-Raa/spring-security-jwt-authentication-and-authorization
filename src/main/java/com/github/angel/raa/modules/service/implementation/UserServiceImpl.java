@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +32,11 @@ public class UserServiceImpl implements UserService {
         users.setRole(Role.ROLE_CUSTOMER);
 
         return userRepository.save(users);
+    }
+
+    @Override
+    public Optional<Users> findOneByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     private void validatePassword(RegisterUserRequest request) {
