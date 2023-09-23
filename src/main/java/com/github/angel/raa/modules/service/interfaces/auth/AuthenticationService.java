@@ -1,6 +1,7 @@
 package com.github.angel.raa.modules.service.interfaces.auth;
 
 
+import com.github.angel.raa.modules.persistence.dto.user.UserDto;
 import com.github.angel.raa.modules.persistence.dto.user.request.AuthenticateRequest;
 import com.github.angel.raa.modules.persistence.dto.user.request.RegisterUserRequest;
 import com.github.angel.raa.modules.persistence.dto.user.response.AuthenticateResponse;
@@ -13,4 +14,7 @@ public interface AuthenticationService {
     AuthenticateResponse login(AuthenticateRequest request);
 
     boolean validateToken(String token);
+
+    UserDto findLoggedInUser();
+
 }

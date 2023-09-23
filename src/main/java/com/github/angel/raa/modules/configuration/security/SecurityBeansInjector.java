@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityBeansInjector {
-    private final UserRepository  userRepository;
+    private final UserRepository userRepository;
+
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
@@ -31,7 +32,7 @@ public class SecurityBeansInjector {
     }
 
     @Bean
-    AuthenticationProvider authenticationProvider(){
+    AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());
@@ -39,7 +40,7 @@ public class SecurityBeansInjector {
     }
 
     @Bean
-    UserDetailsService userDetailsService(){
-        return (username ) -> userRepository.findByUsername(username).orElseThrow(( ) -> new UserNotFoundException(Message.USER_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
+    UserDetailsService userDetailsService() {
+        return (username) -> userRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException(Message.USER_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
     }
 }
