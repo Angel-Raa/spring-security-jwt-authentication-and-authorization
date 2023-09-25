@@ -31,7 +31,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private ProductStatus status;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Category.class)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Category.class)
     @JoinColumn(name = "category_id")
     private Category category;
 

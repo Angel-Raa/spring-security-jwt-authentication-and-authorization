@@ -9,4 +9,5 @@ public interface UserService {
     Users registerOneCustomer(RegisterUserRequest request);
 
     Optional<Users> findOneByUsername(String username);
+    Users registerOneAdmin(RegisterUserRequest request);
 }

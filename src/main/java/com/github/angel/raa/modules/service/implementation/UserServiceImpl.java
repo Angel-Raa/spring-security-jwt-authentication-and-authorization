@@ -39,6 +39,17 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+    @Override
+    public Users registerOneAdmin(RegisterUserRequest request) {
+        validatePassword(request);
+        Users users = new Users();
+        users.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
+        users.setUsername(request.getUsername());
+        users.setName(request.getName());
+        users.setRole(Role.ROLE_ADMINISTRATOR);
+        return userRepository.save(users);
+    }
+
     private void validatePassword(RegisterUserRequest request) {
         if(!StringUtils.hasText(request.getPassword()) || !StringUtils.hasText(request.getRepeatedPassword())){
             throw new InvalidPasswordException(Message.PASSWORD_NOT_VALID,400, HttpStatus.BAD_REQUEST, LocalDateTime.now());

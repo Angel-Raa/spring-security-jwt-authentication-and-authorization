@@ -10,6 +10,7 @@ import com.github.angel.raa.modules.persistence.dto.user.response.RegisterRespon
 public interface AuthenticationService {
 
     RegisterResponse registerOneCustomer(RegisterUserRequest request);
+    RegisterResponse registerOneAdmin(RegisterUserRequest request);
 
     AuthenticateResponse login(AuthenticateRequest request);
 

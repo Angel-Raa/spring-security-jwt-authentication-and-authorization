@@ -43,6 +43,19 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
+    public RegisterResponse registerOneAdmin(RegisterUserRequest request) {
+        Users users = userService.registerOneAdmin(request);
+        RegisterResponse response = new RegisterResponse();
+        response.setId(users.getId());
+        response.setUsername(users.getUsername());
+        response.setName(users.getName());
+        response.setRole(users.getRole().name());
+        response.setJwt(jwtTokenService.generateToken(users, jwtTokenService.generateExtraClaims(users)));
+        return response;
+
+    }
+
+    @Override
     public AuthenticateResponse login(AuthenticateRequest request) {
         Authentication authentication = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         authenticationManager.authenticate(authentication);
@@ -51,6 +64,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
          String jwt = jwtTokenService.generateToken(users, jwtTokenService.generateExtraClaims(users));
         return new AuthenticateResponse(jwt);
     }
+
+
 
     @Override
     public boolean validateToken(String token) {
@@ -65,7 +80,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public UserDto findLoggedInUser() {
-        UserDto useDto = new UserDto();
+        //UserDto useDto = new UserDto();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = null;
         if (auth instanceof UsernamePasswordAuthenticationToken authToke) {
