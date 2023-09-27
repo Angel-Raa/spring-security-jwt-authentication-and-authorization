@@ -1,9 +1,11 @@
 package com.github.angel.raa.modules.exception;
 
+import com.github.angel.raa.modules.utils.constants.Message;
 import com.github.angel.raa.modules.utils.payload.ApiErrorResponse;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -36,7 +38,5 @@ public class GlobalExceptionHandler {
         ApiErrorResponse apiError = new ApiErrorResponse(e.getMessage(), 404, e.getStatus(), e.getTimestamp());
         return ResponseEntity.status(e.getStatus()).body(apiError);
     }
-
-
 
 }

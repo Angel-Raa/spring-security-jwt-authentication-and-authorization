@@ -1,6 +1,8 @@
 package com.github.angel.raa.modules.configuration.security;
 
 import com.github.angel.raa.modules.configuration.filter.JwtAuthenticationFilter;
+import com.github.angel.raa.modules.configuration.handler.CustomAccessDeniedHandler;
+import com.github.angel.raa.modules.configuration.handler.CustomAuthenticationEntryPoint;
 import com.github.angel.raa.modules.utils.enums.Permission;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +24,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class HttpSecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+    private final CustomAccessDeniedHandler customAccessDeniedHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -30,6 +34,10 @@ public class HttpSecurityConfiguration {
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling((exceptions) -> {
+                    exceptions.authenticationEntryPoint(customAuthenticationEntryPoint);
+                    exceptions.accessDeniedHandler(customAccessDeniedHandler);
+                })
                 .build();
     }
 

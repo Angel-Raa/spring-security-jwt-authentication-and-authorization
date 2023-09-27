@@ -40,6 +40,8 @@ public class Message {
     public static final String INVALID_CREDENTIALS = "Invalid credentials";
     public static final String INVALID_TOKEN = "Invalid token";
     public static final String PASSWORD_MIN_LENGTH = " The password must have at least 8 characters.";
+    public static final String ACCESS_DENIED = "Sorry, you do not have permissions to access this resource.";
+    public static final String NOT_AUTHENTICATION = "no authentication credentials found please log in to access this resource";
 
 
 }
