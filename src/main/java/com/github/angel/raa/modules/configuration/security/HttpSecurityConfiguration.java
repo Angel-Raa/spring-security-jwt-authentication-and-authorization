@@ -15,8 +15,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
 //@EnableWebSecurity
+@Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class HttpSecurityConfiguration {
@@ -30,7 +30,6 @@ public class HttpSecurityConfiguration {
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                //.authorizeHttpRequests(HttpSecurityConfiguration::buildRequestMatchers)
                 .build();
     }
 
