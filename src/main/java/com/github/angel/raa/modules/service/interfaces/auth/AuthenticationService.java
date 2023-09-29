@@ -6,6 +6,7 @@ import com.github.angel.raa.modules.persistence.dto.user.request.AuthenticateReq
 import com.github.angel.raa.modules.persistence.dto.user.request.RegisterUserRequest;
 import com.github.angel.raa.modules.persistence.dto.user.response.AuthenticateResponse;
 import com.github.angel.raa.modules.persistence.dto.user.response.RegisterResponse;
+import jakarta.servlet.http.HttpServletRequest;
 
 public interface AuthenticationService {
 
@@ -18,4 +19,5 @@ public interface AuthenticationService {
 
     UserDto findLoggedInUser();
 
+    void logout(HttpServletRequest request);
 }

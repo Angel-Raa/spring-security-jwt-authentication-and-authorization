@@ -40,7 +40,7 @@ public class ProductController {
     public ResponseEntity<Page<ProductListDto>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }
-    @PreAuthorize("permitAll")
+    @PreAuthorize("hasAuthority('CREATE_ONE_PRODUCT')")
     @GetMapping("/{productId}")
     public ResponseEntity<ProductListDto> findById(@Valid @PathVariable @Min(1) Long productId) {
         return ResponseEntity.ok(service.findById(productId));
