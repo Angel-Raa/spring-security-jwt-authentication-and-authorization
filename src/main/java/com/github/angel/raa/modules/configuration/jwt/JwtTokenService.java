@@ -1,6 +1,6 @@
 package com.github.angel.raa.modules.configuration.jwt;
 
-import com.github.angel.raa.modules.persistence.models.Users;
+import com.github.angel.raa.modules.persistence.models.auth.Users;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
@@ -8,7 +8,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 

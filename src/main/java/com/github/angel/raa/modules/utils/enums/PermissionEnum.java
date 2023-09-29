@@ -1,6 +1,6 @@
 package com.github.angel.raa.modules.utils.enums;
 
-public enum Permission {
+public enum PermissionEnum {
     READ_ALL_PRODUCTS,
     READ_ONE_PRODUCT,
     CREATE_ONE_PRODUCT,

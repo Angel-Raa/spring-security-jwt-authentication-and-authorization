@@ -2,11 +2,11 @@ package com.github.angel.raa.modules.service.implementation;
 
 import com.github.angel.raa.modules.exception.InvalidPasswordException;
 import com.github.angel.raa.modules.persistence.dto.user.request.RegisterUserRequest;
-import com.github.angel.raa.modules.persistence.models.Users;
+import com.github.angel.raa.modules.persistence.models.auth.Users;
 import com.github.angel.raa.modules.persistence.repository.UserRepository;
 import com.github.angel.raa.modules.service.interfaces.auth.UserService;
 import com.github.angel.raa.modules.utils.constants.Message;
-import com.github.angel.raa.modules.utils.enums.Role;
+import com.github.angel.raa.modules.utils.enums.RoleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         users.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
         users.setUsername(request.getUsername());
         users.setName(request.getName());
-        users.setRole(Role.ROLE_CUSTOMER);
+        users.setRole(RoleEnum.ROLE_CUSTOMER);
 
         return userRepository.save(users);
     }
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
         users.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
         users.setUsername(request.getUsername());
         users.setName(request.getName());
-        users.setRole(Role.ROLE_ADMINISTRATOR);
+        users.setRole(RoleEnum.ROLE_ADMINISTRATOR);
         return userRepository.save(users);
     }
 

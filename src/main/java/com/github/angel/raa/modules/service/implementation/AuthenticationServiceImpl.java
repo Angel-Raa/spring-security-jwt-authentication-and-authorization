@@ -7,7 +7,7 @@ import com.github.angel.raa.modules.persistence.dto.user.request.AuthenticateReq
 import com.github.angel.raa.modules.persistence.dto.user.request.RegisterUserRequest;
 import com.github.angel.raa.modules.persistence.dto.user.response.AuthenticateResponse;
 import com.github.angel.raa.modules.persistence.dto.user.response.RegisterResponse;
-import com.github.angel.raa.modules.persistence.models.Users;
+import com.github.angel.raa.modules.persistence.models.auth.Users;
 import com.github.angel.raa.modules.service.interfaces.auth.AuthenticationService;
 import com.github.angel.raa.modules.service.interfaces.auth.UserService;
 import com.github.angel.raa.modules.utils.constants.Message;

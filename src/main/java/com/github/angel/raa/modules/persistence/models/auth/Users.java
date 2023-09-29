@@ -1,7 +1,8 @@
-package com.github.angel.raa.modules.persistence.models;
+package com.github.angel.raa.modules.persistence.models.auth;
 
 
-import com.github.angel.raa.modules.utils.enums.Role;
+
+import com.github.angel.raa.modules.utils.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -28,12 +30,13 @@ public class Users implements UserDetails {
     private String name;
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private RoleEnum role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (role == null) return null;
         if (role.getPermissions() == null) return null;
+
         return role.getPermissions().stream()
                 .map(Enum::name)
                 .map(SimpleGrantedAuthority::new)

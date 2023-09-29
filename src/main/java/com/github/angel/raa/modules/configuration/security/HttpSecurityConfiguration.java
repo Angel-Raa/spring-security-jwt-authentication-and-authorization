@@ -3,7 +3,7 @@ package com.github.angel.raa.modules.configuration.security;
 import com.github.angel.raa.modules.configuration.filter.JwtAuthenticationFilter;
 import com.github.angel.raa.modules.configuration.handler.CustomAccessDeniedHandler;
 import com.github.angel.raa.modules.configuration.handler.CustomAuthenticationEntryPoint;
-import com.github.angel.raa.modules.utils.enums.Permission;
+import com.github.angel.raa.modules.utils.enums.PermissionEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,25 +55,25 @@ public class HttpSecurityConfiguration {
         // Products
         authHttp.requestMatchers(HttpMethod.POST, "/products/create-product")
                 //.hasAnyRole(Role.ROLE_ADMINISTRATOR.name(), Role.ROLE_ASSISTANT_ADMINISTRATOR.name());
-                .hasAuthority(Permission.CREATE_ONE_PRODUCT.name());
+                .hasAuthority(PermissionEnum.CREATE_ONE_PRODUCT.name());
         authHttp.requestMatchers(HttpMethod.PUT, "/products/update/{productId}")
                 //.hasAnyRole(Role.ROLE_ADMINISTRATOR.name(), Role.ROLE_ASSISTANT_ADMINISTRATOR.name());
-               .hasAuthority(Permission.UPDATE_ONE_PRODUCT.name());
+               .hasAuthority(PermissionEnum.UPDATE_ONE_PRODUCT.name());
 
         authHttp.requestMatchers(HttpMethod.PUT, "/products/{productId}/disable")
                 //.hasAnyRole(Role.ROLE_ADMINISTRATOR.name(), Role.ROLE_ASSISTANT_ADMINISTRATOR.name());
-                   .hasAuthority(Permission.DISABLE_ONE_PRODUCT.name());
+                   .hasAuthority(PermissionEnum.DISABLE_ONE_PRODUCT.name());
         authHttp.requestMatchers(HttpMethod.DELETE, "/products/delete/{productId}")
                 //.hasAnyRole(Role.ROLE_ADMINISTRATOR.name(), Role.ROLE_ASSISTANT_ADMINISTRATOR.name());
-                .hasAuthority(Permission.DELETE_ONE_PRODUCT.name());
+                .hasAuthority(PermissionEnum.DELETE_ONE_PRODUCT.name());
 
         // Category
         authHttp.requestMatchers(HttpMethod.POST, "/category/create-category")
-                .hasAuthority(Permission.CREATE_ONE_CATEGORIES.name());
+                .hasAuthority(PermissionEnum.CREATE_ONE_CATEGORIES.name());
         authHttp.requestMatchers(HttpMethod.PUT, "/category/update/{id}")
-                .hasAuthority(Permission.UPDATE_ONE_CATEGORIES.name());
+                .hasAuthority(PermissionEnum.UPDATE_ONE_CATEGORIES.name());
         authHttp.requestMatchers(HttpMethod.DELETE, "/category/delete/{id}")
-                .hasAuthority(Permission.DELETE_ONE_CATEGORIES.name());
+                .hasAuthority(PermissionEnum.DELETE_ONE_CATEGORIES.name());
         authHttp.anyRequest().authenticated();
     }
 }
