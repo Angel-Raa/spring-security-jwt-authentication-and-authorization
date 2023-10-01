@@ -40,6 +40,7 @@ public class ProductController {
     public ResponseEntity<Page<ProductListDto>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }
+    //@CrossOrigin(origins = "http://127.0.0.1:5500/", methods = {RequestMethod.GET})
     @PreAuthorize("hasAuthority('CREATE_ONE_PRODUCT')")
     @GetMapping("/{productId}")
     public ResponseEntity<ProductListDto> findById(@Valid @PathVariable @Min(1) Long productId) {
