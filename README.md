@@ -8,7 +8,9 @@
 Los JSON Web Tokens (JWT) son un estándar abierto para la transmisión de información segura en formato JSON. Se componen de tres partes, separadas por puntos:
 
 **Header**: contiene información sobre el token, como el algoritmo de firma utilizado.
+
 **Payload**: contiene los datos del token, como el nombre de usuario, la fecha de expiración, etc.
+
 **Signature**: es una firma digital que se utiliza para verificar la autenticidad del token.
 Los JWT se utilizan para la autenticación y autorización de usuarios en aplicaciones web. Permiten enviar información de forma segura entre un servidor y un cliente, sin necesidad de almacenar datos sensibles en el servidor.
 
