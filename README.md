@@ -17,11 +17,17 @@ Los JWT se utilizan para la autenticación y autorización de usuarios en aplica
 ### Ventajas de los JWT:
 
 **Seguridad**: los JWT se pueden firmar digitalmente para verificar su autenticidad.
+
 **Eficiencia**: los JWT son ligeros y fáciles de transportar.
+
 **Facilidad de uso**: los JWT son fáciles de implementar en aplicaciones web.
 
  ### Usos de los JWT:
 
 **Autenticación**: los JWT se pueden utilizar para autenticar usuarios en aplicaciones web.
+
 **Autorización**: los JWT se pueden utilizar para autorizar usuarios a acceder a recursos específicos.
+
 **Intercambio de información**: los JWT se pueden utilizar para intercambiar información de forma segura entre aplicaciones web.
+
+
