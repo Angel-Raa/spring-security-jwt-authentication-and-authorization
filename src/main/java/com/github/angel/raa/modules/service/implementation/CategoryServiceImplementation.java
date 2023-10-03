@@ -8,7 +8,7 @@ import com.github.angel.raa.modules.persistence.models.Category;
 import com.github.angel.raa.modules.persistence.repository.CategoryRepository;
 import com.github.angel.raa.modules.service.interfaces.CategoryService;
 import com.github.angel.raa.modules.utils.constants.Message;
-import com.github.angel.raa.modules.utils.payload.ApiResponse;
+import com.github.angel.raa.modules.utils.payload.ApisResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -43,27 +43,27 @@ public class CategoryServiceImplementation implements CategoryService {
 
     @Override
     @Transactional
-    public ApiResponse saveCategory(CategoryDto body) {
+    public ApisResponse saveCategory(CategoryDto body) {
         Category category = new Category();
         category.setName(body.getName());
         categoryRepository.save(category);
-        return new ApiResponse(Message.CATEGORY_SAVED_SUCCESSFULLY, 201, HttpStatus.CREATED, LocalDateTime.now());
+        return new ApisResponse(Message.CATEGORY_SAVED_SUCCESSFULLY, 201, HttpStatus.CREATED, LocalDateTime.now());
     }
 
     @Override
     @Transactional
-    public ApiResponse updateCategory(Long categoryId, CategoryDto body) {
+    public ApisResponse updateCategory(Long categoryId, CategoryDto body) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException(Message.CATEGORY_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
         category.setName(body.getName());
         categoryRepository.save(category);
-        return new ApiResponse(Message.CATEGORY_UPDATED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
+        return new ApisResponse(Message.CATEGORY_UPDATED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
     }
 
     @Override
     @Transactional
-    public ApiResponse deleteCategory(Long categoryId) {
+    public ApisResponse deleteCategory(Long categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException(Message.CATEGORY_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
         categoryRepository.delete(category);
-        return new ApiResponse(Message.CATEGORY_DELETED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
+        return new ApisResponse(Message.CATEGORY_DELETED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
     }
 }

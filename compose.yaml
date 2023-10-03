@@ -3,6 +3,8 @@ services:
     image: 'postgres:15-alpine'
     restart: 'always'
     container_name: 'database'
+    networks:
+      - 'red-spring'
     volumes:
       - 'data:/var/lib/'
     environment:
@@ -12,5 +14,9 @@ services:
     ports:
       - '50400:5432'
 
+
+
 volumes:
   'data':
+networks:
+  'red-spring':

@@ -13,7 +13,7 @@ import com.github.angel.raa.modules.persistence.repository.CategoryRepository;
 import com.github.angel.raa.modules.persistence.repository.ProductRepository;
 import com.github.angel.raa.modules.service.interfaces.ProductService;
 import com.github.angel.raa.modules.utils.constants.Message;
-import com.github.angel.raa.modules.utils.payload.ApiResponse;
+import com.github.angel.raa.modules.utils.payload.ApisResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -67,18 +67,18 @@ public class ProductServiceImplementation implements ProductService {
 
     @Override
     @Transactional
-    public ApiResponse saveProduct(ProductDto body) {
+    public ApisResponse saveProduct(ProductDto body) {
         Category category = categoryRepository.findById(body.category())
                 .orElseThrow(( ) -> new CategoryNotFoundException(Message.CATEGORY_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
         Product product = mapper.toEntity(body);
         product.setCategory(category);
         repository.save(product);
-        return new ApiResponse(Message.PRODUCT_SAVED_SUCCESSFULLY, 201, HttpStatus.CREATED, LocalDateTime.now());
+        return new ApisResponse(Message.PRODUCT_SAVED_SUCCESSFULLY, 201, HttpStatus.CREATED, LocalDateTime.now());
     }
 
     @Override
     @Transactional
-    public ApiResponse updateProduct(Long productId, ProductDto body) {
+    public ApisResponse updateProduct(Long productId, ProductDto body) {
         Category category = categoryRepository.findById(body.category())
                 .orElseThrow(( ) -> new CategoryNotFoundException(Message.CATEGORY_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
         Product product = repository.findById(productId)
@@ -89,16 +89,16 @@ public class ProductServiceImplementation implements ProductService {
         product.setStatus(ProductStatus.ACTIVE);
         product.setCategory(category);
         repository.save(product);
-        return new ApiResponse(Message.PRODUCT_UPDATED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
+        return new ApisResponse(Message.PRODUCT_UPDATED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
     }
 
     @Override
     @Transactional
-    public ApiResponse deleteProduct(Long productId) {
+    public ApisResponse deleteProduct(Long productId) {
         Product product = repository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException(Message.PRODUCT_NOT_FOUND, 404, HttpStatus.NOT_FOUND, LocalDateTime.now()));
         repository.delete(product);
-        return new ApiResponse(Message.PRODUCT_DELETED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
+        return new ApisResponse(Message.PRODUCT_DELETED_SUCCESSFULLY, 200, HttpStatus.OK, LocalDateTime.now());
     }
 
     @Override
