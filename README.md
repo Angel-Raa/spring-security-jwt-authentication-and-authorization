@@ -30,6 +30,10 @@ Los JWT se utilizan ampliamente para la autenticación y autorización de usuari
 
 3. **Intercambio de información**: Los JWT se emplean para intercambiar información de forma segura entre aplicaciones web. Esto es útil en casos como la comunicación entre microservicios o la autenticación en una API.
 
+### Docs 
+```
+http://localhost:8000/api/v1/swagger-ui/index.html#/
+```
 
 
 
