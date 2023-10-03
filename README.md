@@ -34,6 +34,7 @@ Los JWT se utilizan ampliamente para la autenticación y autorización de usuari
 ```
 http://localhost:8000/api/v1/swagger-ui/index.html#/
 ```
+![](https://github.com/Angel-Raa/spring-security-jwt-authentication-and-authorization/blob/main/src/main/resources/img/docs.png)
 
 
 
