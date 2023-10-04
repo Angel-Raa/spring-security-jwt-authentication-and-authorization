@@ -53,7 +53,7 @@ Asegúrate de tener instalados los siguientes componentes en tu entorno de desar
 #### Clonar el repositorio en tu máquina local
 
 ```
-https://github.com/Angel-Raa/spring-security-jwt-authentication-and-authorization.git
+git clone https://github.com/Angel-Raa/spring-security-jwt-authentication-and-authorization.git
 ```
 #### Navegar al directorio del proyecto
 Dirígete al directorio del proyecto recién clonado utilizando el siguiente comando:
@@ -64,8 +64,8 @@ cd spring-security-jwt-authentication-and-authorization
 
 Debes crear dos archivos de configuración, file.env y db.env, en el directorio raíz del repositorio clonado. Aquí están los pasos para crear y configurar estos archivos.
 
-**file.env** Este archivo contiene las variables de entorno para la aplicación.
-Crea un archivo llamado file.env y agrega la siguiente información, reemplazando los valores necesarios:
+**file.env** 
+Este archivo contiene las variables de entorno para la aplicación.
 ```bash
 SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/tu_basedatos
 SPRING_DATASOURCE_USERNAME=tu_usuario
@@ -74,14 +74,14 @@ SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
 SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_JPA_SHOW=true
 ```
-**db.env** Este archivo contiene las credenciales para la base de datos.
-Crea un archivo llamado file.env y agrega la siguiente información, reemplazando los valores necesarios:
+**db.env** 
+Este archivo contiene las credenciales para la base de datos.C
 ```bash
 POSTGRES_DB=nombre_de_tu_basedatos
 POSTGRES_PASSWORD=contraseña_de_la_base_de_datos
 POSTGRES_USER=usuario_de_la_base_de_datos
 ```
-Asegúrate de reemplazar nombre_de_tu_basedatos, contraseña_de_la_base_de_datos y usuario_de_la_base_de_datos con los valores adecuados para tu configuración.
+Asegúrate de reemplazar `nombre_de_tu_basedatos`, `contraseña_de_la_base_de_datos` y `usuario_de_la_base_de_datos` con los valores adecuados para tu configuración.
 
 #### Construir y ejecutar los contenedores de Docker Compose
 ```
