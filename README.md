@@ -55,31 +55,38 @@ Asegúrate de tener instalados los siguientes componentes en tu entorno de desar
 ```
 https://github.com/Angel-Raa/spring-security-jwt-authentication-and-authorization.git
 ```
-#### Variables de Entorno
+#### Navegar al directorio del proyecto
+Dirígete al directorio del proyecto recién clonado utilizando el siguiente comando:
+```
+cd spring-security-jwt-authentication-and-authorization
+```
+#### Crear y Configurar file.env y db.env
 
-Asegúrate de configurar adecuadamente las variables de entorno en los archivos `db.env` y `file.env` con los valores correctos.
-o**Contenido de file.env**
+Debes crear dos archivos de configuración, file.env y db.env, en el directorio raíz del repositorio clonado. Aquí están los pasos para crear y configurar estos archivos.
+
+**file.env** Este archivo contiene las variables de entorno para la aplicación.
+Crea un archivo llamado file.env y agrega la siguiente información, reemplazando los valores necesarios:
 ```bash
-SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/
-SPRING_DATASOURCE_USERNAME=
-SPRING_DATASOURCE_PASSWORD=
+SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/tu_basedatos
+SPRING_DATASOURCE_USERNAME=tu_usuario
+SPRING_DATASOURCE_PASSWORD=tu_contraseña
 SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
 SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_JPA_SHOW=true
 ```
-**Contenido de db.env**
-
+**db.env** Este archivo contiene las credenciales para la base de datos.
+Crea un archivo llamado file.env y agrega la siguiente información, reemplazando los valores necesarios:
 ```bash
-POSTGRES_DB=db_api
-POSTGRES_PASSWORD=12345
-POSTGRES_USER=db_api
+POSTGRES_DB=nombre_de_tu_basedatos
+POSTGRES_PASSWORD=contraseña_de_la_base_de_datos
+POSTGRES_USER=usuario_de_la_base_de_datos
 ```
+Asegúrate de reemplazar nombre_de_tu_basedatos, contraseña_de_la_base_de_datos y usuario_de_la_base_de_datos con los valores adecuados para tu configuración.
 
 #### Construir y ejecutar los contenedores de Docker Compose
 ```
 docker compose up -d
 ```
-
 
 ### Documentación de los Endpoints
 ```
