@@ -63,6 +63,7 @@ cd spring-security-jwt-authentication-and-authorization
 #### Crear y Configurar file.env y db.env
 
 Debes crear dos archivos de configuración, `file.env` y `db.env`, en el directorio raíz del repositorio clonado. 
+
 **file.env** 
 Este archivo contiene las variables de entorno para la aplicación.
 ```bash
