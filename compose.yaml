@@ -7,12 +7,28 @@ services:
       - 'red-spring'
     volumes:
       - 'data:/var/lib/'
-    environment:
-      - 'POSTGRES_DB=db_api'
-      - 'POSTGRES_PASSWORD=12345'
-      - 'POSTGRES_USER=db_api'
+    env_file:
+      - 'db.env'
     ports:
-      - '50400:5432'
+      - '5432'
+
+
+  app:
+    build:
+      context: ./
+      dockerfile: 'Dockerfile'
+    depends_on:
+      - 'database'
+    restart: 'always'
+    container_name: 'app'
+    networks:
+      - 'red-spring'
+    ports:
+      - '8000:8080'
+    env_file:
+      - 'file.env'
+
+
 
 
 
