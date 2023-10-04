@@ -62,8 +62,7 @@ cd spring-security-jwt-authentication-and-authorization
 ```
 #### Crear y Configurar file.env y db.env
 
-Debes crear dos archivos de configuración, file.env y db.env, en el directorio raíz del repositorio clonado. Aquí están los pasos para crear y configurar estos archivos.
-
+Debes crear dos archivos de configuración, `file.env` y `db.env`, en el directorio raíz del repositorio clonado. 
 **file.env** 
 Este archivo contiene las variables de entorno para la aplicación.
 ```bash
@@ -75,7 +74,7 @@ SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_JPA_SHOW=true
 ```
 **db.env** 
-Este archivo contiene las credenciales para la base de datos.C
+Este archivo contiene las credenciales para la base de datos.
 ```bash
 POSTGRES_DB=nombre_de_tu_basedatos
 POSTGRES_PASSWORD=contraseña_de_la_base_de_datos
