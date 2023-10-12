@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/administrator")
 @RequiredArgsConstructor
-@Tag(name =" Administrators", description = "Operaciones para manejar administrators")
+@Tag(name =" Administrators", description = "Register administrators")
 public class AdministratorController {
     private final AuthenticationService authenticationService;
     @Operation(summary = "Register one administrator")

@@ -88,7 +88,7 @@ Asegúrate de reemplazar `nombre_de_tu_basedatos`, `contraseña_de_la_base_de_da
 docker compose up -d
 ```
 
-### Documentación de los Endpoints
+### Swagger Documentation
 ```
 http://localhost:8000/api/v1/swagger-ui/index.html#/
 ```
