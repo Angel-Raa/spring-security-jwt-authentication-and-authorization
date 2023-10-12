@@ -1,4 +1,4 @@
-package com.github.angel.raa.modules.configuration.docs;
+package com.github.angel.raa.modules.configuration.swagger;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
